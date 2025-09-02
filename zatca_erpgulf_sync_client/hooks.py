@@ -242,3 +242,15 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+doc_events = {
+    "Sales Invoice": {
+        "on_submit": "zatca_erpgulf_sync_client.sync.sales_invoice_on_submit"
+    }
+}
+doctype_js = {
+    "Sales Invoice": ["public/js/sales_invoice.js",
+                        "public/js/badge.js"]
+}
+
+
+fixtures = [ {"dt": "Custom Field","filters": [["module", "=", "zatca_erpgulf_sync_client"]] }]
