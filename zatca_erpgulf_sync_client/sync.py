@@ -127,7 +127,7 @@ def sales_invoice_on_submit(doc, method=None):
             "posting_date": str(doc.posting_date),
             "due_date": str(doc.due_date),
             "discount_amount": doc.discount_amount or 0,
-            "tax_category": doc.tax_category or "Standard",
+            "tax_category": doc.custom_zatca_tax_category or "Standard",
             "exemption_reason_code": settings.exemption_reason_code or "",
             "is_b2c": bool(doc.custom_b2c),
             "is_return": 1 if doc.is_return else 0,
