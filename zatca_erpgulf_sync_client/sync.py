@@ -168,6 +168,7 @@ def sales_invoice_on_submit(doc, method=None):
         resp_json = response.json()
         data = resp_json.get("data", {})
         match = re.search(r'ZATCA Response:\s*({.*})', data["zatca_full_response"], re.DOTALL)
+        doc.db_set("custom_zatca_full_response", data["zatca_full_response"])
         if match:
                 zatca_json = json.loads(match.group(1))
 
